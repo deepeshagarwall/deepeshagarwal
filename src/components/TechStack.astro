@@ -1,0 +1,86 @@
+---
+const groups = [
+  {
+    label: "Cloud & Infrastructure",
+    icon: "☁️",
+    items: ["Google Cloud Platform", "BigQuery", "Cloud Run", "Cloud Storage", "Pub/Sub", "Terraform", "Cloudflare"],
+  },
+  {
+    label: "Data Engineering",
+    icon: "⚡",
+    items: ["Apache Spark", "PySpark", "Databricks", "Azure Data Factory", "dbt", "Dataflow", "Firestore"],
+  },
+  {
+    label: "Backend",
+    icon: "🔧",
+    items: ["Python", "FastAPI", "SQL", "PostgreSQL", "REST APIs", "SAP HANA"],
+  },
+  {
+    label: "Frontend",
+    icon: "🎨",
+    items: ["React", "TypeScript", "Tailwind CSS", "Astro", "Next.js"],
+  },
+  {
+    label: "AI & Emerging",
+    icon: "🤖",
+    items: ["Generative AI", "Agentic AI", "Vertex AI", "LangChain", "Claude", "Prompt Engineering"],
+  },
+  {
+    label: "Tools & Practices",
+    icon: "🛠",
+    items: ["Git", "GitHub Actions", "Cloud Build", "Docker", "Make", "Linux"],
+  },
+];
+---
+
+<section id="skills" class="py-28 px-6">
+  <div class="max-w-6xl mx-auto">
+    <!-- Section label -->
+    <div class="mb-12">
+      <p class="section-label"><span class="gold-line"></span>Skills</p>
+      <h2 class="mt-3 text-3xl font-bold text-[#E8E8E8]">Tech Stack</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {groups.map(group => (
+        <div class="card p-6 group">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xl">{group.icon}</span>
+            <h3 class="text-sm font-semibold text-[#E8E8E8]">{group.label}</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            {group.items.map(item => (
+              <span class="tag">{item}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Certifications -->
+    <div class="mt-14">
+      <p class="section-label mb-6"><span class="gold-line"></span>Certifications</p>
+      <div class="grid md:grid-cols-3 gap-4">
+        {[
+          { name: "Google Cloud Professional Cloud Architect", issuer: "Google Cloud", status: "In Progress" },
+          { name: "Generative AI Fundamentals", issuer: "Google Cloud", status: "In Progress" },
+          { name: "Agentic AI Development", issuer: "Google Cloud", status: "In Progress" },
+        ].map(cert => (
+          <div class="card p-5 flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/20 flex items-center justify-center flex-shrink-0 text-lg">
+              🎓
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-[#E8E8E8] text-sm font-medium leading-snug mb-1">{cert.name}</p>
+              <p class="text-xs text-muted mb-2">{cert.issuer}</p>
+              <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-gold-400/10 border border-gold-400/20 text-gold-400 text-xs font-mono">
+                <span class="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse"></span>
+                {cert.status}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

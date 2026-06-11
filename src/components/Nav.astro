@@ -1,0 +1,94 @@
+---
+const links = [
+  { href: '#about', label: 'About' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#beyond', label: 'Beyond Work' },
+  { href: '#contact', label: 'Contact' },
+];
+---
+
+<nav id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <!-- Monogram -->
+    <a href="#" class="flex items-center gap-2 group">
+      <div class="w-9 h-9 rounded-lg bg-gold-400 flex items-center justify-center text-surface-900 font-bold text-sm tracking-tight transition-transform group-hover:scale-105">
+        DA
+      </div>
+      <span class="text-sm font-medium text-[#888] group-hover:text-[#E8E8E8] transition-colors hidden sm:block">
+        Deepesh Agarwal
+      </span>
+    </a>
+
+    <!-- Links -->
+    <ul class="hidden md:flex items-center gap-8">
+      {links.map(link => (
+        <li>
+          <a
+            href={link.href}
+            class="text-sm text-[#888] hover:text-[#E8E8E8] transition-colors duration-200 relative group"
+          >
+            {link.label}
+            <span class="absolute -bottom-0.5 left-0 w-0 h-px bg-gold-400 transition-all duration-200 group-hover:w-full"></span>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- CTA -->
+    <a
+      href="mailto:contact@deepeshagarwal.com"
+      class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gold-400 text-gold-400 text-sm font-medium hover:bg-gold-400 hover:text-surface-900 transition-all duration-200"
+    >
+      Get in touch
+    </a>
+
+    <!-- Mobile hamburger (functional via JS) -->
+    <button id="menu-btn" class="md:hidden p-2 text-[#888] hover:text-[#E8E8E8]" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-surface-800 border-t border-surface-600 px-6 py-4">
+    <ul class="flex flex-col gap-4">
+      {links.map(link => (
+        <li>
+          <a href={link.href} class="text-sm text-[#888] hover:text-gold-400 transition-colors mobile-link">
+            {link.label}
+          </a>
+        </li>
+      ))}
+      <li>
+        <a href="mailto:contact@deepeshagarwal.com" class="text-sm text-gold-400 font-medium">
+          Get in touch →
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  const nav = document.getElementById('nav');
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      nav?.classList.add('bg-surface-900/90', 'backdrop-blur-md', 'border-b', 'border-surface-600');
+    } else {
+      nav?.classList.remove('bg-surface-900/90', 'backdrop-blur-md', 'border-b', 'border-surface-600');
+    }
+  });
+
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => menu?.classList.add('hidden'));
+  });
+</script>

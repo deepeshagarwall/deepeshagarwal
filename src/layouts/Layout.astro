@@ -1,0 +1,121 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Deepesh Agarwal — Technical Lead',
+  description = 'Technical Lead at L\'Oréal. Building cloud platforms, data systems, and modern engineering solutions. Learning compounds.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+
+    <!-- OG / Social meta -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/avatar.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/avatar.jpg" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-surface-900 text-[#E8E8E8] font-sans antialiased">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0d0d0d;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2e2e2e;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #F5A623;
+  }
+
+  ::selection {
+    background: #F5A62344;
+    color: #F5A623;
+  }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #F5A623;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .gold-line {
+    display: inline-block;
+    width: 40px;
+    height: 2px;
+    background: #F5A623;
+    vertical-align: middle;
+    margin-right: 12px;
+  }
+
+  .card {
+    background: #141414;
+    border: 1px solid #242424;
+    border-radius: 12px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card:hover {
+    border-color: #F5A62366;
+    box-shadow: 0 0 24px #F5A62310;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    background: #1C1C1C;
+    border: 1px solid #2E2E2E;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    color: #888;
+    font-family: 'JetBrains Mono', monospace;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .tag:hover {
+    border-color: #F5A623;
+    color: #F5A623;
+  }
+</style>

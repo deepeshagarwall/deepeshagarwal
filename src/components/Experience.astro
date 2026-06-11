@@ -1,0 +1,101 @@
+---
+const jobs = [
+  {
+    company: "L'Oréal",
+    role: "Technical Lead",
+    period: "Mar 2026 – Present",
+    location: "Hyderabad, India",
+    description:
+      "Leading data engineering on the BTDP platform — building scalable data ingestion, processing, and distribution services on Google Cloud Platform. Working across Python, FastAPI, BigQuery, Cloud Run, React, and Terraform.",
+    tags: ["GCP", "BigQuery", "Python", "FastAPI", "React", "Terraform", "Cloud Run"],
+    current: true,
+  },
+  {
+    company: "Wipro",
+    role: "Data Engineer",
+    period: "Oct 2024 – Mar 2026",
+    location: "India",
+    description:
+      "Expanded experience in supply chain and planning systems through o9 Solutions. Worked on large-scale data processing pipelines and enterprise integrations.",
+    tags: ["o9 Solutions", "PySpark", "SQL", "Data Pipelines"],
+    current: false,
+  },
+  {
+    company: "TCS",
+    role: "Data Engineer",
+    period: "Apr 2022 – Oct 2024",
+    location: "India",
+    description:
+      "Transitioned into data engineering and cloud technologies, building Azure Data Factory pipelines and large-scale PySpark data processing workloads.",
+    tags: ["Azure", "ADF", "PySpark", "SQL", "Databricks"],
+    current: false,
+  },
+  {
+    company: "Accenture",
+    role: "Associate Software Engineer",
+    period: "Nov 2018 – Apr 2022",
+    location: "India",
+    description:
+      "Started my engineering journey — built backend applications and learned the foundations of software development with Python, SQL, and web development.",
+    tags: ["Python", "SQL", "Web Development", "Backend"],
+    current: false,
+  },
+];
+---
+
+<section id="experience" class="py-28 px-6 bg-surface-800/30">
+  <div class="max-w-6xl mx-auto">
+    <!-- Section label -->
+    <div class="mb-12">
+      <p class="section-label"><span class="gold-line"></span>Experience</p>
+      <h2 class="mt-3 text-3xl font-bold text-[#E8E8E8]">Career Journey</h2>
+    </div>
+
+    <!-- Timeline -->
+    <div class="relative">
+      <!-- Vertical line -->
+      <div class="absolute left-0 md:left-[200px] top-0 bottom-0 w-px bg-surface-600 hidden md:block"></div>
+
+      <div class="space-y-10">
+        {jobs.map((job) => (
+          <div class="md:grid md:grid-cols-[200px_1fr] gap-8 items-start">
+            <!-- Left: period + company -->
+            <div class="md:text-right mb-4 md:mb-0 md:pr-8">
+              <div class="font-mono text-xs text-muted mb-1">{job.period}</div>
+              <div class="text-sm text-[#888]">{job.location}</div>
+            </div>
+
+            <!-- Timeline dot -->
+            <div class="relative">
+              <div class={`absolute -left-[9px] top-1.5 w-4 h-4 rounded-full border-2 hidden md:flex items-center justify-center ${job.current ? 'border-gold-400 bg-gold-400/20' : 'border-surface-500 bg-surface-800'}`}>
+                {job.current && <div class="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse"></div>}
+              </div>
+
+              <!-- Card -->
+              <div class="card p-6 ml-0 md:ml-4">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 class="text-[#E8E8E8] font-semibold text-lg">{job.role}</h3>
+                    <p class="text-gold-400 text-sm font-medium mt-0.5">{job.company}</p>
+                  </div>
+                  {job.current && (
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gold-400/10 border border-gold-400/20 text-gold-400 text-xs font-medium">
+                      <span class="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse"></span>
+                      Current
+                    </span>
+                  )}
+                </div>
+                <p class="text-[#888] text-sm leading-relaxed mb-4">{job.description}</p>
+                <div class="flex flex-wrap gap-2">
+                  {job.tags.map(tag => (
+                    <span class="tag">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

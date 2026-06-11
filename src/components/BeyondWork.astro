@@ -1,0 +1,104 @@
+---
+const books = [
+  { title: "The Alchemist", author: "Paulo Coelho", theme: "Ambition & Purpose" },
+  { title: "The Psychology of Money", author: "Morgan Housel", theme: "Wealth & Mindset" },
+  { title: "The Intelligent Investor", author: "Benjamin Graham", theme: "Value & Patience" },
+  { title: "Tuesdays with Morrie", author: "Mitch Albom", theme: "Relationships & Life" },
+];
+
+const sports = ["Table Tennis", "Badminton", "Cricket", "Chess", "Foosball", "Carrom"];
+---
+
+<section id="beyond" class="py-28 px-6 bg-surface-800/30">
+  <div class="max-w-6xl mx-auto">
+    <!-- Section label -->
+    <div class="mb-12">
+      <p class="section-label"><span class="gold-line"></span>Beyond Work</p>
+      <h2 class="mt-3 text-3xl font-bold text-[#E8E8E8]">What Drives Me</h2>
+    </div>
+
+    <!-- Bento grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-min">
+
+      <!-- Trading & Markets — wide card -->
+      <div class="card p-6 lg:col-span-2">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/20 flex items-center justify-center text-xl flex-shrink-0">
+            📈
+          </div>
+          <div>
+            <h3 class="text-[#E8E8E8] font-semibold mb-2">Trading & Markets</h3>
+            <p class="text-[#888] text-sm leading-relaxed">
+              Markets fascinate me because they're one of the most honest feedback systems in the world —
+              constantly challenging assumptions, exposing emotional weaknesses, and rewarding discipline.
+              My approach is rooted in <span class="text-gold-400">Demand & Supply concepts</span>,
+              with deep interest in trading psychology and risk management.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              {["Demand & Supply", "Risk Management", "Trading Psychology", "Consistency"].map(t => (
+                <span class="tag">{t}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Continuous Learning -->
+      <div class="card p-6">
+        <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-xl mb-4">
+          🧠
+        </div>
+        <h3 class="text-[#E8E8E8] font-semibold mb-2">Continuous Learning</h3>
+        <p class="text-[#888] text-sm leading-relaxed">
+          Reading, documenting ideas, watching educational content, and experimenting.
+          Writing helps me think more clearly — this site is my digital garden.
+        </p>
+      </div>
+
+      <!-- Books -->
+      <div class="card p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-xl">
+            📚
+          </div>
+          <h3 class="text-[#E8E8E8] font-semibold">Books That Shaped Me</h3>
+        </div>
+        <div class="space-y-3">
+          {books.map(book => (
+            <div class="flex items-start gap-3 pb-3 border-b border-surface-600 last:border-0 last:pb-0">
+              <div class="flex-1 min-w-0">
+                <div class="text-sm text-[#E8E8E8] font-medium truncate">{book.title}</div>
+                <div class="text-xs text-muted">{book.author}</div>
+              </div>
+              <span class="text-xs text-gold-400 bg-gold-400/10 px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0">
+                {book.theme}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Sports & Games -->
+      <div class="card p-6 lg:col-span-2">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-center text-xl flex-shrink-0">
+            🏓
+          </div>
+          <div class="flex-1">
+            <h3 class="text-[#E8E8E8] font-semibold mb-2">Sports & Games</h3>
+            <p class="text-[#888] text-sm leading-relaxed mb-4">
+              I love activities that combine <span class="text-[#E8E8E8]">skill, strategy, and continuous improvement</span>.
+              Not because I'm exceptionally competitive — but because I enjoy the process of getting better.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              {sports.map(sport => (
+                <span class="tag">{sport}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

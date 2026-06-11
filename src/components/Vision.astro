@@ -1,0 +1,83 @@
+---
+const pillars = [
+  {
+    icon: "📈",
+    title: "Finance & Trading",
+    description:
+      "Going deep into trading, investing, and the finance industry — not just as a practitioner but as someone who understands the mechanics, the psychology, and the systems behind it.",
+    accent: "gold",
+  },
+  {
+    icon: "🔗",
+    title: "Supply Chain & Operations",
+    description:
+      "Leveraging hands-on experience with o9 Solutions and enterprise supply chain systems to bridge the gap between data, technology, and real business operations.",
+    accent: "blue",
+  },
+  {
+    icon: "🧭",
+    title: "Functional, Not Just Technical",
+    description:
+      "The long-term goal isn't to stay purely technical. It's to grow into a functional leader — someone who can contribute on the business side, understand domain deeply, and drive decisions end-to-end.",
+    accent: "purple",
+  },
+  {
+    icon: "🌍",
+    title: "Trademap — Global Scale",
+    description:
+      "What started as a personal trade journal has the potential to become a globally useful platform. The goal is to build and scale Trademap so that any trader, anywhere, can use it to learn, journal, and improve.",
+    accent: "green",
+  },
+];
+
+const accentMap = {
+  gold:   { bg: "bg-gold-400/10",    border: "border-gold-400/20",    text: "text-gold-400" },
+  blue:   { bg: "bg-blue-500/10",    border: "border-blue-500/20",    text: "text-blue-400" },
+  purple: { bg: "bg-purple-500/10",  border: "border-purple-500/20",  text: "text-purple-400" },
+  green:  { bg: "bg-green-500/10",   border: "border-green-500/20",   text: "text-green-400" },
+};
+---
+
+<section id="vision" class="py-28 px-6">
+  <div class="max-w-6xl mx-auto">
+    <!-- Section label -->
+    <div class="mb-12">
+      <p class="section-label"><span class="gold-line"></span>Vision</p>
+      <h2 class="mt-3 text-3xl font-bold text-[#E8E8E8]">Where I'm Headed</h2>
+    </div>
+
+    <!-- Intro -->
+    <div class="max-w-2xl mb-14">
+      <p class="text-[#AAAAAA] text-base leading-relaxed">
+        My long-term direction isn't just about technology. It's about becoming someone who operates at the
+        intersection of <span class="text-gold-400">finance, business, and engineering</span> — scaling both
+        vertically as a domain expert and horizontally across functional areas. Less pure-tech, more impact.
+      </p>
+    </div>
+
+    <!-- Pillars — 2x2 grid -->
+    <div class="grid sm:grid-cols-2 gap-6">
+      {pillars.map(pillar => {
+        const a = accentMap[pillar.accent];
+        return (
+          <div class="card p-6">
+            <div class={`w-12 h-12 rounded-xl ${a.bg} border ${a.border} flex items-center justify-center text-2xl mb-4`}>
+              {pillar.icon}
+            </div>
+            <h3 class={`font-semibold mb-2 ${a.text}`}>{pillar.title}</h3>
+            <p class="text-[#888] text-sm leading-relaxed">{pillar.description}</p>
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- Quote -->
+    <div class="mt-14 max-w-3xl mx-auto text-center">
+      <div class="w-px h-12 bg-surface-600 mx-auto mb-8"></div>
+      <blockquote class="text-xl sm:text-2xl font-light text-[#E8E8E8] italic leading-relaxed">
+        "Small improvements made consistently over time often create the biggest results."
+      </blockquote>
+      <p class="mt-4 font-mono text-xs text-muted tracking-widest uppercase">— Deepesh Agarwal</p>
+    </div>
+  </div>
+</section>
